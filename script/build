@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Exit the script if any command fails
+set -e
+
+echo "📦 Building the Stream Deck plugin..."
+npm run build
+
+echo "🔄 Restarting the Stream Deck plugin..."
+npx streamdeck restart com.max-beizer.zerm
+
+echo "✅ Plugin built and restarted successfully!"
