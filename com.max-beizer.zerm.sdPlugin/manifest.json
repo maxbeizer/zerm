@@ -1,0 +1,69 @@
+{
+	"Name": "zerm",
+	"Version": "0.1.0.0",
+	"Author": "max beizer",
+	"Actions": [
+		{
+			"Name": "Counter",
+			"UUID": "com.max-beizer.zerm.increment",
+			"Icon": "imgs/actions/counter/icon",
+			"Tooltip": "Displays a count, which increments by one on press.",
+			"PropertyInspectorPath": "ui/increment-counter.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/counter/key",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Zoom Mute Toggle",
+			"UUID": "com.max-beizer.zerm.zoom-mute-toggle",
+			"Icon": "imgs/actions/zoom-mute-toggle/icon",
+			"Tooltip": "Toggle mute status in Zoom meetings",
+			"PropertyInspectorPath": "ui/zoom-mute-toggle.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/zoom-mute-toggle/key_0",
+					"Name": "Muted",
+					"TitleAlignment": "middle"
+				},
+				{
+					"Image": "imgs/actions/zoom-mute-toggle/key_1",
+					"Name": "Unmuted",
+					"TitleAlignment": "middle"
+				}
+			]
+		}
+	],
+	"Category": "zerm",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "some basic zoom controls",
+	"Icon": "imgs/plugin/marketplace",
+	"SDKVersion": 2,
+	"Software": {
+		"MinimumVersion": "6.4"
+	},
+	"OS": [
+		{
+			"Platform": "mac",
+			"MinimumVersion": "12"
+		},
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "20",
+		"Debug": "enabled"
+	},
+	"UUID": "com.max-beizer.zerm"
+}
