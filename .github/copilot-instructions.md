@@ -4,9 +4,8 @@
 
 Zerm is a Stream Deck plugin designed to provide Zoom meeting controls directly from the Elgato Stream Deck. The plugin currently includes:
 
-1. Sample Counter action (demo functionality)
-2. Zoom Mute Toggle - Toggle mute status in Zoom even when another application is focused
-3. Zoom Video Toggle - Toggle camera/video status in Zoom even when another application is focused
+1. Zoom Mute Toggle - Toggle mute status in Zoom even when another application is focused
+2. Zoom Video Toggle - Toggle camera/video status in Zoom even when another application is focused
 
 ## Key Technologies
 
@@ -20,7 +19,6 @@ Zerm is a Stream Deck plugin designed to provide Zoom meeting controls directly 
 - **src/**: Contains the TypeScript source code
   - **plugin.ts**: Entry point that registers all actions
   - **actions/**: Contains individual action classes
-    - **increment-counter.ts**: Sample counter implementation
     - **zoom-mute-toggle.ts**: Zoom mute control implementation
     - **zoom-video-toggle.ts**: Zoom video control implementation
 

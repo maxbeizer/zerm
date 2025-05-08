@@ -3,22 +3,6 @@
 	"Version": "0.1.0.0",
 	"Author": "max beizer",	"Actions": [
 		{
-			"Name": "Counter",
-			"UUID": "com.max-beizer.zerm.increment",
-			"Icon": "imgs/actions/counter/icon",
-			"Tooltip": "Displays a count, which increments by one on press.",
-			"PropertyInspectorPath": "ui/increment-counter.html",
-			"Controllers": [
-				"Keypad"
-			],
-			"States": [
-				{
-					"Image": "imgs/actions/counter/key",
-					"TitleAlignment": "middle"
-				}
-			]
-		},
-		{
 			"Name": "Zoom Mute Toggle",
 			"UUID": "com.max-beizer.zerm.zoom-mute-toggle",
 			"Icon": "imgs/actions/zoom-mute-toggle/icon",

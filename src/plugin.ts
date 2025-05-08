@@ -8,7 +8,6 @@
  */
 import streamDeck, { LogLevel } from "@elgato/streamdeck";
 
-import { IncrementCounter } from "./actions/increment-counter";
 import { ZoomMuteToggle } from "./actions/zoom-mute-toggle";
 import { ZoomVideoToggle } from "./actions/zoom-video-toggle";
 
@@ -16,7 +15,6 @@ import { ZoomVideoToggle } from "./actions/zoom-video-toggle";
 streamDeck.logger.setLevel(LogLevel.TRACE);
 
 // Register all actions
-streamDeck.actions.registerAction(new IncrementCounter());
 streamDeck.actions.registerAction(new ZoomMuteToggle());
 streamDeck.actions.registerAction(new ZoomVideoToggle());
 
