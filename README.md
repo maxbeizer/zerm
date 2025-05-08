@@ -57,7 +57,3 @@ This provides a seamless experience, allowing you to control Zoom without switch
 ## License
 
 MIT
-
-## Credits
-
-Created by Max Beizer
