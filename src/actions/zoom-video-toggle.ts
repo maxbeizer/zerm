@@ -1,3 +1,15 @@
+/**
+ * Zoom Video Toggle Action
+ * 
+ * This action provides the ability to toggle the camera/video status in Zoom meetings.
+ * It works even when Zoom isn't the active application by:
+ * 1. Remembering the current application focus
+ * 2. Activating Zoom
+ * 3. Sending the keyboard shortcut (Shift+Command+V)
+ * 4. Returning focus to the original application
+ * 
+ * @see .github/copilot-instructions.md for development guidelines
+ */
 import {
   action,
   KeyDownEvent,
@@ -6,6 +18,10 @@ import {
 } from "@elgato/streamdeck";
 import { execSync } from "child_process";
 
+/**
+ * Action that toggles Zoom video status on or off
+ * Works with or without Zoom having focus
+ */
 @action({ UUID: "com.max-beizer.zerm.zoom-video-toggle" })
 export class ZoomVideoToggle extends SingletonAction<Record<string, never>> {
   override async onWillAppear(

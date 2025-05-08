@@ -1,3 +1,11 @@
+/**
+ * Zerm - A Stream Deck plugin for controlling Zoom
+ * 
+ * This plugin provides controls for Zoom meetings directly from the Elgato Stream Deck,
+ * allowing users to toggle mute and video status even when Zoom is not the active application.
+ * 
+ * For development guidance, see: .github/copilot-instructions.md
+ */
 import streamDeck, { LogLevel } from "@elgato/streamdeck";
 
 import { IncrementCounter } from "./actions/increment-counter";

@@ -1,3 +1,15 @@
+/**
+ * Zoom Mute Toggle Action
+ *
+ * This action provides the ability to toggle the audio mute status in Zoom meetings.
+ * It works even when Zoom isn't the active application by:
+ * 1. Remembering the current application focus
+ * 2. Activating Zoom
+ * 3. Sending the keyboard shortcut (Shift+Command+A)
+ * 4. Returning focus to the original application
+ *
+ * @see .github/copilot-instructions.md for development guidelines
+ */
 import {
   action,
   KeyDownEvent,
@@ -7,7 +19,8 @@ import {
 import { execSync } from "child_process";
 
 /**
- * An action class that toggles the mute status in Zoom.
+ * Action that toggles Zoom mute status on or off
+ * Works with or without Zoom having focus
  */
 @action({ UUID: "com.max-beizer.zerm.zoom-mute-toggle" })
 export class ZoomMuteToggle extends SingletonAction<ZoomMuteSettings> {
