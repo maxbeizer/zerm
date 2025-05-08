@@ -37,7 +37,7 @@ For developers wanting to extend or modify this plugin:
 The plugin uses SVG files as the source for all icons, which are then converted to PNG files during the build process. To modify icons:
 
 1. Edit the SVG files in `com.max-beizer.zerm.sdPlugin/imgs/actions/[action-name]/`
-2. Run `./script/build` which automatically converts SVGs to PNGs before building
+2. Run `./script/build` which automatically converts SVGs to PNGs before building using ImageMagick's modern `magick` command
 
 ## How It Works
 

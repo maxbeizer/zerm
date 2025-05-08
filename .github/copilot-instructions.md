@@ -80,7 +80,7 @@ The plugin follows these conventions for icons:
    - `icon.svg`: The main icon for the action (shown in the Stream Deck UI)
    - State-specific SVGs (e.g., `muted.svg`, `unmuted.svg`) for different button states
    - Generated PNGs: `icon.png`, `icon@2x.png`, `key_0.png`, `key_0@2x.png`, etc.
-4. The conversion process uses ImageMagick and is integrated into the build script
+4. The conversion process uses ImageMagick's modern `magick` command and is integrated into the build script
 
 ## Coding Style Guidelines
 
