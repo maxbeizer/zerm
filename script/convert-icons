@@ -25,16 +25,16 @@ fi
 # Function to convert SVG to PNG for each action
 convert_icons() {
   local action_dir="$1"
-  
+
   echo "Converting icons for $action_dir..."
-  
+
   # Small icon (for catalog)
   if [ -f "$BASE_DIR/$action_dir/icon.svg" ]; then
     echo "  Converting icon.svg to icon.png"
     /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/icon.svg" -resize 20x20 "$BASE_DIR/$action_dir/icon.png"
     /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/icon.svg" -resize 40x40 "$BASE_DIR/$action_dir/icon@2x.png"
   fi
-  
+
   # Key icons (for button display) - Map action specific SVGs to key_0.png and key_1.png
   # Convert the appropriate SVG files to PNG based on action type
   case "$action_dir" in
@@ -45,14 +45,14 @@ convert_icons() {
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/muted.svg" -resize 72x72 "$BASE_DIR/$action_dir/key_0.png"
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/muted.svg" -resize 144x144 "$BASE_DIR/$action_dir/key_0@2x.png"
       fi
-      
+
       if [ -f "$BASE_DIR/$action_dir/unmuted.svg" ]; then
         echo "  Converting unmuted.svg to key_1.png"
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/unmuted.svg" -resize 72x72 "$BASE_DIR/$action_dir/key_1.png"
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/unmuted.svg" -resize 144x144 "$BASE_DIR/$action_dir/key_1@2x.png"
       fi
       ;;
-      
+
     # Video Toggle Action - video-off.svg for key_0, video-on.svg for key_1
     "zoom-video-toggle")
       if [ -f "$BASE_DIR/$action_dir/video-off.svg" ]; then
@@ -60,14 +60,14 @@ convert_icons() {
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/video-off.svg" -resize 72x72 "$BASE_DIR/$action_dir/key_0.png"
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/video-off.svg" -resize 144x144 "$BASE_DIR/$action_dir/key_0@2x.png"
       fi
-      
+
       if [ -f "$BASE_DIR/$action_dir/video-on.svg" ]; then
         echo "  Converting video-on.svg to key_1.png"
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/video-on.svg" -resize 72x72 "$BASE_DIR/$action_dir/key_1.png"
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/video-on.svg" -resize 144x144 "$BASE_DIR/$action_dir/key_1@2x.png"
       fi
       ;;
-      
+
     # Screen Share Action - not-sharing.svg for key_0, sharing.svg for key_1
     "zoom-share-screen")
       if [ -f "$BASE_DIR/$action_dir/not-sharing.svg" ]; then
@@ -75,14 +75,14 @@ convert_icons() {
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/not-sharing.svg" -resize 72x72 "$BASE_DIR/$action_dir/key_0.png"
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/not-sharing.svg" -resize 144x144 "$BASE_DIR/$action_dir/key_0@2x.png"
       fi
-      
+
       if [ -f "$BASE_DIR/$action_dir/sharing.svg" ]; then
         echo "  Converting sharing.svg to key_1.png"
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/sharing.svg" -resize 72x72 "$BASE_DIR/$action_dir/key_1.png"
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/sharing.svg" -resize 144x144 "$BASE_DIR/$action_dir/key_1@2x.png"
       fi
       ;;
-      
+
     # Focus Action - zoom-running.svg for key_0, no-zoom.svg for key_1
     "zoom-focus")
       if [ -f "$BASE_DIR/$action_dir/zoom-running.svg" ]; then
@@ -90,14 +90,14 @@ convert_icons() {
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/zoom-running.svg" -resize 72x72 "$BASE_DIR/$action_dir/key_0.png"
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/zoom-running.svg" -resize 144x144 "$BASE_DIR/$action_dir/key_0@2x.png"
       fi
-      
+
       if [ -f "$BASE_DIR/$action_dir/no-zoom.svg" ]; then
         echo "  Converting no-zoom.svg to key_1.png"
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/no-zoom.svg" -resize 72x72 "$BASE_DIR/$action_dir/key_1.png"
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/no-zoom.svg" -resize 144x144 "$BASE_DIR/$action_dir/key_1@2x.png"
       fi
       ;;
-      
+
     # Leave Meeting Action - in-meeting.svg for key_0, no-meeting.svg for key_1
     "zoom-leave-meeting")
       if [ -f "$BASE_DIR/$action_dir/in-meeting.svg" ]; then
@@ -105,7 +105,7 @@ convert_icons() {
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/in-meeting.svg" -resize 72x72 "$BASE_DIR/$action_dir/key_0.png"
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/in-meeting.svg" -resize 144x144 "$BASE_DIR/$action_dir/key_0@2x.png"
       fi
-      
+
       if [ -f "$BASE_DIR/$action_dir/no-meeting.svg" ]; then
         echo "  Converting no-meeting.svg to key_1.png"
         /opt/homebrew/bin/magick "$BASE_DIR/$action_dir/no-meeting.svg" -resize 72x72 "$BASE_DIR/$action_dir/key_1.png"

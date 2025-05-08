@@ -24,6 +24,10 @@ A Stream Deck plugin providing convenient Zoom meeting controls directly from yo
 2. Run `npm install` to install dependencies
 3. Run `./script/build` to build and install the plugin
 
+### Distribution/Release
+
+For information on packaging and releasing this plugin to the Stream Deck Store, see the [Release Documentation](docs/RELEASE.md).
+
 ## Development
 
 For developers wanting to extend or modify this plugin:
