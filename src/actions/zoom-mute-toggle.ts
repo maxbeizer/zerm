@@ -56,13 +56,39 @@ export class ZoomMuteToggle extends SingletonAction<ZoomMuteSettings> {
 
   /**
    * Toggle mute status in Zoom using AppleScript
+   * This works even when Zoom is not the focused application
    */
   private toggleZoomMute(): void {
-    const script = `osascript -e 'tell application "zoom.us"
+    const script = `osascript -e '
+      -- Store the current active application to return to it later
+      set currentApp to (path to frontmost application as text)
+      
+      -- Check if Zoom is running
       tell application "System Events"
-        keystroke "a" using {shift down, command down}
+        set zoomRunning to exists (process "zoom.us")
       end tell
-    end tell'`;
+      
+      if zoomRunning then
+        -- Activate Zoom, toggle mute, and return to previous app
+        tell application "zoom.us"
+          activate
+          delay 0.1 -- Small delay to ensure Zoom is ready
+          
+          tell application "System Events"
+            keystroke "a" using {shift down, command down}
+          end tell
+          
+          -- Return to the original app
+          delay 0.2 -- Small delay before switching back
+          tell application currentApp
+            activate
+          end tell
+        end tell
+      else
+        -- Zoom is not running
+        display notification "Zoom is not running" with title "Stream Deck"
+      end if
+    '`;
 
     execSync(script);
   }
@@ -70,27 +96,47 @@ export class ZoomMuteToggle extends SingletonAction<ZoomMuteSettings> {
   /**
    * Get the current mute status of Zoom
    * Returns true if muted, false if unmuted
+   * Works without changing application focus
    */
   private getZoomMuteStatus(): boolean {
-    // Execute AppleScript to check Zoom mute status
+    // Execute AppleScript to check Zoom mute status without changing focus
     const script = `osascript -e '
-      set muteStatus to "muted"
+      set muteStatus to "unknown"
+      
       tell application "System Events"
-        if exists (process "zoom.us") then
-          tell application process "zoom.us"
-            if exists (menu item "Mute audio" of menu 1 of menu bar item "Meeting" of menu bar 1) then
+        -- Check if Zoom is running
+        if not (exists (process "zoom.us")) then
+          return "not_running"
+        end if
+        
+        -- Check Zoom meeting status via menu bar items without changing focus
+        tell process "zoom.us"
+          -- Check if we are in a meeting (presence of Meeting menu item)
+          if (exists menu bar item "Meeting" of menu bar 1) then
+            -- Check mute status by checking which menu item exists
+            if (exists menu item "Mute audio" of menu 1 of menu bar item "Meeting" of menu bar 1) then
               set muteStatus to "unmuted"
-            else if exists (menu item "Unmute audio" of menu 1 of menu bar item "Meeting" of menu bar 1) then
+            else if (exists menu item "Unmute audio" of menu 1 of menu bar item "Meeting" of menu bar 1) then
               set muteStatus to "muted"
             end if
-          end tell
-        end if
+          else
+            -- Not in a meeting
+            return "not_in_meeting"
+          end if
+        end tell
       end tell
+      
       return muteStatus
     '`;
 
     try {
       const result = execSync(script).toString().trim();
+      
+      if (result === "not_running" || result === "not_in_meeting") {
+        console.log(`Zoom status: ${result}`);
+        return false; // Default to unmuted state for UI
+      }
+      
       return result === "muted";
     } catch (error) {
       // If there's an error, assume Zoom is not running or not in a meeting
