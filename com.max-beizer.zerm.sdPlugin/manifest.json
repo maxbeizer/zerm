@@ -23,8 +23,7 @@
 					"TitleAlignment": "middle"
 				}
 			]
-		},
-		{
+		},		{
 			"Name": "Zoom Video Toggle",
 			"UUID": "com.max-beizer.zerm.zoom-video-toggle",
 			"Icon": "imgs/actions/zoom-video-toggle/icon",
@@ -42,6 +41,28 @@
 				{
 					"Image": "imgs/actions/zoom-video-toggle/key_1",
 					"Name": "Video On",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Zoom Screen Share",
+			"UUID": "com.max-beizer.zerm.zoom-share-screen",
+			"Icon": "imgs/actions/zoom-share-screen/icon",
+			"Tooltip": "Start or stop screen sharing in Zoom meetings",
+			"PropertyInspectorPath": "ui/zoom-share-screen.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/zoom-share-screen/key_0",
+					"Name": "Not Sharing",
+					"TitleAlignment": "middle"
+				},
+				{
+					"Image": "imgs/actions/zoom-share-screen/key_1",
+					"Name": "Sharing",
 					"TitleAlignment": "middle"
 				}
 			]

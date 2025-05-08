@@ -6,6 +6,7 @@ Zerm is a Stream Deck plugin designed to provide Zoom meeting controls directly 
 
 1. Zoom Mute Toggle - Toggle mute status in Zoom even when another application is focused
 2. Zoom Video Toggle - Toggle camera/video status in Zoom even when another application is focused
+3. Zoom Screen Share - Start/stop screen sharing in Zoom even when another application is focused
 
 ## Key Technologies
 
@@ -21,6 +22,7 @@ Zerm is a Stream Deck plugin designed to provide Zoom meeting controls directly 
   - **actions/**: Contains individual action classes
     - **zoom-mute-toggle.ts**: Zoom mute control implementation
     - **zoom-video-toggle.ts**: Zoom video control implementation
+    - **zoom-share-screen.ts**: Zoom screen sharing implementation
 
 - **com.max-beizer.zerm.sdPlugin/**: Contains the compiled plugin
   - **manifest.json**: Plugin configuration and metadata
@@ -82,6 +84,6 @@ Actions maintain their state by:
 ## Future Development Ideas
 
 - Add Windows support using appropriate Windows APIs
-- Add additional Zoom controls (leave meeting, share screen, etc.)
+- Add additional Zoom controls (leave meeting, reactions, etc.)
 - Improve error handling and status detection 
 - Add settings to customize keyboard shortcuts
