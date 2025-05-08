@@ -1,8 +1,7 @@
 {
 	"Name": "zerm",
 	"Version": "0.1.0.0",
-	"Author": "max beizer",
-	"Actions": [
+	"Author": "max beizer",	"Actions": [
 		{
 			"Name": "Counter",
 			"UUID": "com.max-beizer.zerm.increment",
@@ -37,6 +36,28 @@
 				{
 					"Image": "imgs/actions/zoom-mute-toggle/key_1",
 					"Name": "Unmuted",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Zoom Video Toggle",
+			"UUID": "com.max-beizer.zerm.zoom-video-toggle",
+			"Icon": "imgs/actions/zoom-video-toggle/icon",
+			"Tooltip": "Toggle video/camera status in Zoom meetings",
+			"PropertyInspectorPath": "ui/zoom-video-toggle.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/zoom-video-toggle/key_0",
+					"Name": "Video Off",
+					"TitleAlignment": "middle"
+				},
+				{
+					"Image": "imgs/actions/zoom-video-toggle/key_1",
+					"Name": "Video On",
 					"TitleAlignment": "middle"
 				}
 			]
