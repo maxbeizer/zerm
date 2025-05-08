@@ -8,6 +8,7 @@ A Stream Deck plugin providing convenient Zoom meeting controls directly from yo
 - **Zoom Video Toggle**: Toggle your Zoom camera/video with a single button press
 - **Zoom Screen Share**: Start or stop screen sharing in Zoom meetings with a single button press
 - **Zoom Focus**: Bring the Zoom application to the foreground instantly
+- **Zoom Leave Meeting**: Leave the current Zoom meeting with a single button press
 - Works even when Zoom is not the active application
 
 ## Requirements

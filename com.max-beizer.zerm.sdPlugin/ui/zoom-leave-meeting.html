@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Zoom Focus</title>
+  <title>Zoom Leave Meeting</title>
   <style>
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -34,22 +34,26 @@
       font-size: 12px;
       margin-top: 16px;
     }
+
+    .warning {
+      color: #ff9d00;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-  <h1>Zoom Focus</h1>
+  <h1>Zoom Leave Meeting</h1>
 
   <div class="description">
     <p>
-      This action brings the Zoom application to the foreground.
+      This action leaves the current Zoom meeting.
     </p>
     <p>
-      Use this when you need to quickly interact with Zoom's interface or access controls
-      that aren't available via keyboard shortcuts.
+      It works by sending the <strong>Command+W</strong> keyboard shortcut to Zoom, even when Zoom is not
+      the focused application.
     </p>
-    <p class="note">
-      Note: This action only works if Zoom is already running. If Zoom isn't running,
-      you'll need to start it manually.
+    <p class="note warning">
+      Note: This will immediately leave the meeting without any confirmation prompt.
     </p>
   </div>
 </body>

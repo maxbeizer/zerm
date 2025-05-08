@@ -65,8 +65,7 @@
 					"TitleAlignment": "middle"
 				}
 			]
-		},
-		{
+		},		{
 			"Name": "Zoom Focus",
 			"UUID": "com.max-beizer.zerm.zoom-focus",
 			"Icon": "imgs/actions/zoom-focus/icon",
@@ -84,6 +83,28 @@
 				{
 					"Image": "imgs/actions/zoom-focus/key_1",
 					"Name": "No Zoom",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Zoom Leave Meeting",
+			"UUID": "com.max-beizer.zerm.zoom-leave-meeting",
+			"Icon": "imgs/actions/zoom-leave-meeting/icon",
+			"Tooltip": "Leave the current Zoom meeting",
+			"PropertyInspectorPath": "ui/zoom-leave-meeting.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/zoom-leave-meeting/key_0",
+					"Name": "In Meeting",
+					"TitleAlignment": "middle"
+				},
+				{
+					"Image": "imgs/actions/zoom-leave-meeting/key_1",
+					"Name": "No Meeting",
 					"TitleAlignment": "middle"
 				}
 			]

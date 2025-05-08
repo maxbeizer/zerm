@@ -52,7 +52,7 @@ export class ZoomFocus extends SingletonAction<ZoomFocusSettings> {
 
       // Update the button title based on the result
       await ev.action.setTitle(success ? "Focus Zoom" : "No Zoom");
-      
+
       // Update state if Zoom was focused successfully
       if ("setState" in ev.action) {
         await ev.action.setState(success ? 0 : 1);
@@ -68,22 +68,23 @@ export class ZoomFocus extends SingletonAction<ZoomFocusSettings> {
    * Returns true if Zoom was successfully focused, false otherwise
    */
   private focusZoom(): boolean {
-    const script = "osascript -e '" +
+    const script =
+      "osascript -e '" +
       "-- Check if Zoom is running\n" +
-      "tell application \"System Events\"\n" +
-      "  set zoomRunning to exists (process \"zoom.us\")\n" +
+      'tell application "System Events"\n' +
+      '  set zoomRunning to exists (process "zoom.us")\n' +
       "end tell\n" +
       "\n" +
       "if zoomRunning then\n" +
       "  -- Focus Zoom\n" +
-      "  tell application \"zoom.us\"\n" +
+      '  tell application "zoom.us"\n' +
       "    activate\n" +
       "  end tell\n" +
-      "  return \"success\"\n" +
+      '  return "success"\n' +
       "else\n" +
       "  -- Zoom is not running\n" +
-      "  display notification \"Zoom is not running\" with title \"Stream Deck\"\n" +
-      "  return \"not_running\"\n" +
+      '  display notification "Zoom is not running" with title "Stream Deck"\n' +
+      '  return "not_running"\n' +
       "end if" +
       "'";
 
@@ -101,15 +102,16 @@ export class ZoomFocus extends SingletonAction<ZoomFocusSettings> {
    * Returns true if Zoom is running, false otherwise
    */
   private isZoomRunning(): boolean {
-    const script = "osascript -e '" +
-      "tell application \"System Events\"\n" +
-      "  set zoomRunning to exists (process \"zoom.us\")\n" +
+    const script =
+      "osascript -e '" +
+      'tell application "System Events"\n' +
+      '  set zoomRunning to exists (process "zoom.us")\n' +
       "end tell\n" +
       "\n" +
       "if zoomRunning then\n" +
-      "  return \"running\"\n" +
+      '  return "running"\n' +
       "else\n" +
-      "  return \"not_running\"\n" +
+      '  return "not_running"\n' +
       "end if" +
       "'";
 

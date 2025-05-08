@@ -8,6 +8,7 @@ Zerm is a Stream Deck plugin designed to provide Zoom meeting controls directly 
 2. Zoom Video Toggle - Toggle camera/video status in Zoom even when another application is focused
 3. Zoom Screen Share - Start/stop screen sharing in Zoom even when another application is focused
 4. Zoom Focus - Bring the Zoom application to the foreground instantly
+5. Zoom Leave Meeting - Leave the current Zoom meeting even when another application is focused
 
 ## Key Technologies
 
@@ -19,14 +20,17 @@ Zerm is a Stream Deck plugin designed to provide Zoom meeting controls directly 
 ## Project Structure
 
 - **src/**: Contains the TypeScript source code
+
   - **plugin.ts**: Entry point that registers all actions
   - **actions/**: Contains individual action classes
     - **zoom-mute-toggle.ts**: Zoom mute control implementation
     - **zoom-video-toggle.ts**: Zoom video control implementation
     - **zoom-share-screen.ts**: Zoom screen sharing implementation
     - **zoom-focus.ts**: Zoom focus implementation
+    - **zoom-leave-meeting.ts**: Zoom leave meeting implementation
 
 - **com.max-beizer.zerm.sdPlugin/**: Contains the compiled plugin
+
   - **manifest.json**: Plugin configuration and metadata
   - **imgs/**: Icons and images for the plugin
   - **ui/**: HTML files for property inspectors
@@ -41,6 +45,7 @@ Zerm is a Stream Deck plugin designed to provide Zoom meeting controls directly 
 ### Action Implementation
 
 Each action is implemented as a TypeScript class that:
+
 1. Is decorated with the `@action` decorator specifying the UUID
 2. Extends `SingletonAction<T>` with appropriate settings type
 3. Overrides the `onWillAppear` method to handle initial setup
@@ -49,6 +54,7 @@ Each action is implemented as a TypeScript class that:
 ### AppleScript Pattern
 
 When interacting with Zoom:
+
 1. Store the current active application
 2. Check if Zoom is running
 3. Activate Zoom if needed
@@ -58,6 +64,7 @@ When interacting with Zoom:
 ### State Management
 
 Actions maintain their state by:
+
 1. Checking the current status when they appear
 2. Updating the state and title after each action
 3. Using different images for different states
@@ -87,5 +94,5 @@ Actions maintain their state by:
 
 - Add Windows support using appropriate Windows APIs
 - Add additional Zoom controls (leave meeting, reactions, etc.)
-- Improve error handling and status detection 
+- Improve error handling and status detection
 - Add settings to customize keyboard shortcuts
