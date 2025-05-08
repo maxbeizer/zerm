@@ -38,6 +38,7 @@ Zerm is a Stream Deck plugin designed to provide Zoom meeting controls directly 
 
 - **script/**: Contains utility scripts
   - **build**: Builds the plugin and restarts Stream Deck
+  - **convert-icons**: Converts SVG icons to PNG format
   - **run**: Starts the plugin in watch mode for development
 
 ## Development Patterns
@@ -69,6 +70,18 @@ Actions maintain their state by:
 2. Updating the state and title after each action
 3. Using different images for different states
 
+### Icon Management
+
+The plugin follows these conventions for icons:
+
+1. SVG files are the source of truth for all icons
+2. PNG files are generated from SVGs during the build process using the `convert-icons` script
+3. Each action has:
+   - `icon.svg`: The main icon for the action (shown in the Stream Deck UI)
+   - State-specific SVGs (e.g., `muted.svg`, `unmuted.svg`) for different button states
+   - Generated PNGs: `icon.png`, `icon@2x.png`, `key_0.png`, `key_0@2x.png`, etc.
+4. The conversion process uses ImageMagick and is integrated into the build script
+
 ## Coding Style Guidelines
 
 1. Use clear method and variable names that describe their purpose
@@ -79,8 +92,9 @@ Actions maintain their state by:
 
 ## Useful Commands
 
-- `./script/build`: Builds and restarts the plugin
+- `./script/build`: Builds and restarts the plugin (automatically converts SVGs to PNGs)
 - `./script/run`: Runs the plugin in watch mode for development
+- `./script/convert-icons`: Manually converts SVG icons to PNG format
 - `npm run build`: Builds the plugin without restarting Stream Deck
 - `npm run watch`: Watches for changes and rebuilds automatically
 

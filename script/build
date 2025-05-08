@@ -3,6 +3,9 @@
 # Exit the script if any command fails
 set -e
 
+echo "🎨 Converting SVG icons to PNG..."
+/Users/maxbeizer/code/zerm/script/convert-icons
+
 echo "📦 Building the Stream Deck plugin..."
 npm run build
 

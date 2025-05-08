@@ -29,7 +29,15 @@ A Stream Deck plugin providing convenient Zoom meeting controls directly from yo
 For developers wanting to extend or modify this plugin:
 
 - Run `./script/run` for development with live reloading
+- Run `./script/convert-icons` to convert SVG icons to PNG format
 - Check `.github/copilot-instructions.md` for detailed developer guidance
+
+### Icons
+
+The plugin uses SVG files as the source for all icons, which are then converted to PNG files during the build process. To modify icons:
+
+1. Edit the SVG files in `com.max-beizer.zerm.sdPlugin/imgs/actions/[action-name]/`
+2. Run `./script/build` which automatically converts SVGs to PNGs before building
 
 ## How It Works
 
