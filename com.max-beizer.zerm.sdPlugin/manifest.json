@@ -44,8 +44,7 @@
 					"TitleAlignment": "middle"
 				}
 			]
-		},
-		{
+		},		{
 			"Name": "Zoom Screen Share",
 			"UUID": "com.max-beizer.zerm.zoom-share-screen",
 			"Icon": "imgs/actions/zoom-share-screen/icon",
@@ -63,6 +62,28 @@
 				{
 					"Image": "imgs/actions/zoom-share-screen/key_1",
 					"Name": "Sharing",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Zoom Focus",
+			"UUID": "com.max-beizer.zerm.zoom-focus",
+			"Icon": "imgs/actions/zoom-focus/icon",
+			"Tooltip": "Bring the Zoom application to the foreground",
+			"PropertyInspectorPath": "ui/zoom-focus.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/zoom-focus/key_0",
+					"Name": "Focus Zoom",
+					"TitleAlignment": "middle"
+				},
+				{
+					"Image": "imgs/actions/zoom-focus/key_1",
+					"Name": "No Zoom",
 					"TitleAlignment": "middle"
 				}
 			]
